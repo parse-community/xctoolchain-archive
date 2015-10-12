@@ -55,4 +55,4 @@ CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR
 // 'unused-exception-parameter' - @try @catch without usage of exception parameter.
 // 'missing-variable-declarations' - will mark all variables that are missing declarations, including non-static extern constants.
 //
-WARNING_CFLAGS = $(inherited) -Wswitch-enum -Wmethod-signatures -Widiomatic-parentheses -Wcovered-switch-default -Wcustom-atomic-properties -Wconditional-uninitialized -Wunused-exception-parameter -Wmissing-variable-declarations
+WARNING_CFLAGS = $(inherited) -Wswitch-enum -Wmethod-signatures -Widiomatic-parentheses -Wcustom-atomic-properties -Wconditional-uninitialized -Wunused-exception-parameter -Wmissing-variable-declarations
