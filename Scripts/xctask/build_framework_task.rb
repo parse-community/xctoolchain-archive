@@ -17,10 +17,11 @@ module XCTask
     IOS = 'ios'
     OSX = 'osx'
     WATCHOS = 'watchos'
+    TVOS = 'tvos'
 
     def self.verify(type)
-      if type.nil? || (type != IOS && type != OSX && type != WATCHOS)
-        fail "Unknown framework type. Available types: 'ios', 'osx', 'watchos'."
+      if type.nil? || (type != IOS && type != OSX && type != WATCHOS && type != TVOS)
+        fail "Unknown framework type. Available types: 'ios', 'osx', 'watchos', 'tvos'."
       end
     end
   end
@@ -67,6 +68,8 @@ module XCTask
         build_osx_framework
       when FrameworkType::WATCHOS
         build_watchos_framework
+      when FrameworkType::TVOS
+        build_tvos_framework
       end
     end
 
@@ -115,6 +118,31 @@ module XCTask
       result = system(lipo_command)
       unless result
         puts 'Failed to lipo watchOS framework.'
+        exit(1)
+      end
+      result
+    end
+    
+    def build_tvos_framework
+      framework_paths = []
+      framework_paths << build_framework('appletvos')
+      framework_paths << build_framework('appletvsimulator')
+      final_path = final_framework_path
+
+      system("rm -rf #{final_path} && cp -R #{framework_paths[0]} #{final_path}")
+
+      binary_name = File.basename(@framework_name, '.framework')
+      system("rm -rf #{final_path}/#{binary_name}")
+
+      lipo_command = 'lipo -create'
+      framework_paths.each do |path|
+        lipo_command += " #{path}/#{binary_name}"
+      end
+      lipo_command += " -o #{final_path}/#{binary_name}"
+
+      result = system(lipo_command)
+      unless result
+        puts 'Failed to lipo tvOS framework.'
         exit(1)
       end
       result
