@@ -30,13 +30,15 @@ module XCTask
     BUILD = 'build'
     CLEAN = 'clean'
     TEST = 'test'
+    ANALYZE = 'analyze'
 
     def self.verify(action)
       if action.nil? ||
          (action != BUILD &&
          action != CLEAN &&
-         action != TEST)
-        fail "Unknown build action used. Available actions: 'build', 'clean', 'test'."
+         action != TEST
+         action != ANALYZE)
+        fail "Unknown build action used. Available actions: 'build', 'clean', 'test', 'analyze'."
       end
     end
   end
