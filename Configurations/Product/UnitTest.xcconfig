@@ -13,8 +13,3 @@ BUNDLE_LOADER = $(TEST_HOST)
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @loader_path/Frameworks @executable_path/Frameworks
 USER_HEADER_SEARCH_PATHS = $(value) $(PARSE_DIR)/Tests/**
 CLANG_ENABLE_MODULES = YES
-
-//
-// Extra warnings
-// 'auto-import' - warns when an old-style hashed import could be replaced with modular import aka @import.
-WARNING_CFLAGS = $(inherited) -Wauto-import
