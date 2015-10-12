@@ -36,7 +36,7 @@ module XCTask
       if action.nil? ||
          (action != BUILD &&
          action != CLEAN &&
-         action != TEST
+         action != TEST &&
          action != ANALYZE)
         fail "Unknown build action used. Available actions: 'build', 'clean', 'test', 'analyze'."
       end
