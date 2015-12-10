@@ -76,7 +76,7 @@ module XCTask
     def build_ios_framework
       framework_paths = []
       framework_paths << build_framework('iphoneos')
-      framework_paths << build_framework('iphonesimulator')
+      framework_paths << build_framework('iphonesimulator', '"platform=iOS Simulator,name=iPhone 6s"')
       final_path = final_framework_path
 
       system("rm -rf #{final_path} && cp -R #{framework_paths[0]} #{final_path}")
@@ -101,7 +101,7 @@ module XCTask
     def build_watchos_framework
       framework_paths = []
       framework_paths << build_framework('watchos')
-      framework_paths << build_framework('watchsimulator')
+      framework_paths << build_framework('watchsimulator', '"platform=watchOS Simulator,name=Apple Watch - 42mm"')
       final_path = final_framework_path
 
       system("rm -rf #{final_path} && cp -R #{framework_paths[0]} #{final_path}")
@@ -122,11 +122,11 @@ module XCTask
       end
       result
     end
-    
+
     def build_tvos_framework
       framework_paths = []
       framework_paths << build_framework('appletvos')
-      framework_paths << build_framework('appletvsimulator')
+      framework_paths << build_framework('appletvsimulator', '"platform=tvOS Simulator,name=Apple TV 1080p"')
       final_path = final_framework_path
 
       system("rm -rf #{final_path} && cp -R #{framework_paths[0]} #{final_path}")
@@ -154,7 +154,7 @@ module XCTask
       system("rm -rf #{final_path} && cp -R #{build_path} #{final_path}")
     end
 
-    def build_framework(sdk)
+    def build_framework(sdk, destination = nil)
       configuration_directory = configuration_build_directory(sdk)
       build_task = BuildTask.new do |t|
         t.directory = @directory
@@ -164,6 +164,7 @@ module XCTask
         t.scheme = @scheme
         t.sdk = latest_sdk(sdk)
         t.configuration = @configuration
+        t.destinations = [destination] unless destination.nil?
 
         t.actions = [BuildAction::CLEAN, BuildAction::BUILD]
         t.formatter = BuildFormatter::XCPRETTY
