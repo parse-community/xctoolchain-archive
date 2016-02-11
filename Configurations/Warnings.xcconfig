@@ -42,6 +42,10 @@ GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR
 CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR
 CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR
 
+// Static Analyzer Warnings
+CLANG_ANALYZER_NONNULL = YES
+CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES
+
 //
 // Extra warnings, not available directly in build settings.
 // 'auto-import' - warns when an old-style hashed import could be replaced with modular import aka @import.
