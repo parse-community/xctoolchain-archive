@@ -7,13 +7,8 @@
 // of patent rights can be found in the PATENTS file in the same directory.
 //
 
-ENABLE_NS_ASSERTIONS = NO
-MTL_ENABLE_DEBUG_INFO = NO
+BUNDLE_LOADER = $(TEST_HOST)
 
-DYLIB_COMPATIBILITY_VERSION = 1
-DYLIB_CURRENT_VERSION = 1
+OTHER_LDFLAGS = $(inherited) -ObjC -framework XCTest
 
-SKIP_INSTALL = YES
-
-CLANG_MODULES_AUTOLINK = NO
-CLANG_ENABLE_MODULES = YES
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @loader_path/Frameworks @executable_path/Frameworks

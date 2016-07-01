@@ -7,10 +7,20 @@
 // of patent rights can be found in the PATENTS file in the same directory.
 //
 
+// Dynamic frameworks are backed by dynamic library.
+MACH_O_TYPE = mh_dylib
+
+// Whether this framework should define an LLVM module
+DEFINES_MODULE = YES
+
+// Disable clang modules autolink
+CLANG_MODULES_AUTOLINK = NO
+
 // Whether to strip out code that isn't called from anywhere
 DEAD_CODE_STRIPPING = NO
 
-ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
-ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage
+// Whether function calls should be position-dependent (should always be disabled for shared code)
+GCC_DYNAMIC_NO_PIC = NO
 
-LD_RUNPATH_SEARCH_PATHS = $(inherited) @loader_path/Frameworks @executable_path/Frameworks
+// Don't include in an xcarchive
+SKIP_INSTALL = YES
