@@ -7,9 +7,8 @@
 // of patent rights can be found in the PATENTS file in the same directory.
 //
 
-OTHER_LDFLAGS = $(inherited) -ObjC -framework XCTest
-BUNDLE_LOADER = $(TEST_HOST)
+SDKROOT = macosx
+MACOSX_DEPLOYMENT_TARGET = 10.9
 
-LD_RUNPATH_SEARCH_PATHS = $(inherited) @loader_path/Frameworks @executable_path/Frameworks
-USER_HEADER_SEARCH_PATHS = $(value) $(PARSE_DIR)/Tests/**
-CLANG_ENABLE_MODULES = YES
+// Where to find embedded frameworks
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks

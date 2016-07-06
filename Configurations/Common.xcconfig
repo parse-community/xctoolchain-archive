@@ -9,13 +9,35 @@
 
 #include "Warnings.xcconfig"
 
-// Language Settings
+// Disable legacy-compatible header searching
+ALWAYS_SEARCH_USER_PATHS = NO
+
+// Architectures to build
+ARCHS = $(ARCHS_STANDARD)
+
+// Whether to enable module imports
+CLANG_ENABLE_MODULES = YES
+CLANG_ENABLE_MODULE_DEBUGGING = NO
+
+// Build Options
 CLANG_ENABLE_OBJC_ARC = YES
+GCC_VERSION = com.apple.compilers.llvm.clang.1_0
+
+// Whether to strip out code that isn't called from anywhere
+DEAD_CODE_STRIPPING = NO
+
+// The format of debugging symbols
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+
+// C Language
 GCC_C_LANGUAGE_STANDARD = gnu11
+
+// C++ Language
 CLANG_CXX_LANGUAGE_STANDARD = gnu++14
 CLANG_CXX_LIBRARY = libc++
 
-// Search Paths
-PARSE_DIR = $(PROJECT_DIR)
-VENDOR_DIR = $(PARSE_DIR)/Vendor
-ALWAYS_SEARCH_USER_PATHS = NO
+// Code Generation
+GCC_DYNAMIC_NO_PIC = NO
+GCC_INLINES_ARE_PRIVATE_EXTERN = YES
+GCC_NO_COMMON_BLOCKS = YES
+GCC_SYMBOLS_PRIVATE_EXTERN = NO
