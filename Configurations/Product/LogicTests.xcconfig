@@ -10,5 +10,3 @@
 BUNDLE_LOADER = $(TEST_HOST)
 
 OTHER_LDFLAGS = $(inherited) -ObjC -framework XCTest
-
-LD_RUNPATH_SEARCH_PATHS = $(inherited) @loader_path/Frameworks @executable_path/Frameworks
