@@ -24,3 +24,6 @@ GCC_DYNAMIC_NO_PIC = NO
 
 // Don't include in an xcarchive
 SKIP_INSTALL = YES
+
+// Do not require code signing
+CODE_SIGNING_REQUIRED = NO
