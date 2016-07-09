@@ -27,3 +27,6 @@ SKIP_INSTALL = YES
 
 // Do not require code signing
 CODE_SIGNING_REQUIRED = NO
+
+// Disable code signing
+CODE_SIGN_IDENTITY = 
