@@ -7,8 +7,6 @@
 // of patent rights can be found in the PATENTS file in the same directory.
 //
 
-ARCHS = $(ARCHS_STANDARD) armv7s
-
 SDKROOT = iphoneos
 IPHONEOS_DEPLOYMENT_TARGET = 7.0
 
