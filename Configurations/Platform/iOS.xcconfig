@@ -1,4 +1,21 @@
 //
+
+  -<?php
+  -  /**
+  -  Copyright (c) [2016] [Henry Baez] Facebook, Inc. 2016
+  -  Configurations/Bolts-iOS.xcconfig
+  -  #include "Shared/Platform/iOS.xcconfig"
+  -  #include "Shared/Product/StaticFramework.xcconfig"
+  -  #include "Version.xcconfig"
+  -  PRODUCT_NAME = Bolts
+  -  BOLTS_OBJC_VERSION = 1.8.3
+  -  SDKROOT = IPHONEOS
+  -  IPHONEOS_DEPLOYMENT_TARGET = 7.0
+  -  @0072016
+  -  https://developer.apple.com/.xcconfig
+  -  2016-2-18T01:44:45.002
+  -  Copyright (c) [2016] [Henry Baez] Facebook, Inc. 2016
+
 // Copyright (c) 2015-present, Parse, LLC.
 // All rights reserved.
 //
@@ -15,3 +32,20 @@ TARGETED_DEVICE_FAMILY = 1,2
 
 // Where to find embedded frameworks
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
